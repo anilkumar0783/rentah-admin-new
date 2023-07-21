@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,446 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+/* side bar css */
+
+ /* .side-btn.active{
+  background : #34C651;
+  border-radius :24px 0px 0px 24px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+.side-btn:hover{
+  background: #34C651;
+  border-radius :24px 0px 0px 24px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+} */
+/* body{
+  overflow :scroll
+} */
+
+@media screen and (max-width: 800px) {
+  body{
+    overflow :scroll
+  }
+  }
+.loader{
+  margin-left :"100vw"
+}
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width : 250px;
+  background-color: #E3FFF8;
+  position: fixed;
+  height : 100%;
+  overflow: auto;
+}
+.offcanvas-body{
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #E3FFF8;
+  position: fixed;
+  height : 100%;
+  overflow: auto;
+  transition :3s
+}
+.offcanvas-body a{
+  display: block;
+  color: black;
+  padding: 12px;
+  text-decoration: none;
+  margin-top :10px;
+  margin-left :20px
+}
+.offcanvas-body a.active {
+  color: black;
+  font-weight :bold;
+  border-radius :24px 0px 0px 24px;
+}
+.offcanvas-body a:hover:not(.active) {
+  //background-color: #34C651;
+  color: black;
+  font-weight :bold;
+  border-radius :24px 0px 0px 24px;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+.drawer{
+  display :none
+}
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 12px;
+  text-decoration: none;
+  margin-top :10px;
+  margin-left :20px
+}
+
+/* Active/current link */
+.sidebar a.active {
+  //background-color: #34C651;
+  color: black;
+  font-weight :bold;
+  border-radius :24px 0px 0px 24px;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  //background-color: #34C651;
+  color: black;
+  font-weight :bold;
+  border-radius :24px 0px 0px 24px;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 800px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display :none
+  }
+  .sidebar a {
+    float : left;
+    margin-left :10px
+    /* border-radius :24px ; */
+  }
+  .sidebar a.active {
+    /* float : left; */
+    border-radius :24px ;
+  }
+  .sidebar a:hover:not(.active) {
+    
+    border-radius :24px ;
+  }
+  div.content {margin-left: 0;}
+  .drawer{
+    display :block
+  }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+/* @media screen and (max-width: 700px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */
+
+/* login css */
+
+.login-card{
+  /* background-color : rgba(3, 29, 93 ); */
+  height : 65vh;
+  width : 30vw;
+  /* margin-top : 100px;
+  margin-left : 200px; */
+  position : absolute;
+  left : 500px;
+  top : 130px;
+  /* border : 5px solid yellow; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.login-input{
+  /* width : 500px */
+}
+/* 
+users page css */
+/* .btn-next{
+  position : absolute;
+  left : 450px;
+  bottom : 10px;
+  background :#ffc107;
+  border : 1px #ffc107 ;
+  color :black 
+}
+.btn-next:hover{
+  background :#ffc107;
+  border : 1px #ffc107;
+  color :black ;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.btn-prev{
+  position : absolute;
+  left : 270px;
+  bottom : 10px
+}
+.pages{
+  position :absolute;
+  left : 350px;
+  bottom : 0px
+} */
+
+
+/* moredetails button */
+.moreDetails{
+  background :#9DE7AC;
+}
+.moreDetails:hover{
+  background :#34C651;
+}
+
+.input-single-user{
+  
+  height : 50px;
+   width : 400px;
+    display : block;
+  justifyContent: center
+}
+
+.col-md-10::-webkit-scrollbar {
+  width : 1em;
+}
+
+.col-md-10::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.col-md-10::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+
+/* moredetais user css */
+
+/* .more-detail-lis-req{
+  list-style:none;
+  display:flex;
+  flex-direction:row
+} */
+
+.column-1 {
+  float : left;
+  width : 30%;
+  padding : 10px;
+   /* Should be removed. Only for demonstration */
+}
+.column-2 {
+  float : left;
+  width : 70%;
+  padding : 10px;
+   /* Should be removed. Only for demonstration */
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .column-1 {
+    width: 100%;
+    
+  }
+  .column-2 {
+    width: 100%;
+  }
+}
+
+.listing-column{
+  float : left;
+  width : 50%;
+  height :500px;
+  padding : 10px;
+  overflow :scroll;
+  overflow-x:hidden;
+
+}
+.request-column{
+  float : left;
+  width : 50%;
+  height :500px;
+  padding : 10px;
+  overflow :scroll;
+  overflow-x:hidden;
+
+}
+@media screen and (max-width: 800px) {
+  .listing-column {
+    width: 100%;
+    margin-top :50px
+  }
+  .request-column {
+    width: 100%;
+    margin-top :50px
+  }
+}
+
+.card .card-title,span{
+  color :black;
+  
+}
+/* .card .col-md-8 .card-body p{
+  text-decoration :"none";
+} */
+/* .card :hover{
+  background :#9DE7AC;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  
+} */
+
+.card-dashboard{
+  margin-top :20px;
+  width :300px;
+  float : left;
+  background :#DADADA;
+  border-radius :12px;
+  margin-left :50px
+}
+.dashboard-card-bottom{
+  margin-top :10px;
+  float : left;
+  margin-left :20px
+}
+.dashboard-card-top{
+  margin-top :10px;
+  margin-left :20px
+}
+.dashboard-card-middle{
+  float :left;
+  height :100px;
+  margin-left :
+}
+.dashboard-card-middle p{
+  font-size :"100px"
+}
+
+@media screen and (max-width: 800px) {
+  .card-dashboard{
+    margin-left :3px
+  }
+}
+.table-banner{
+  width :100%;
+  /* overflow-x :hidden;
+  overflow-y:hidden; */
+}
+@media screen and (max-width: 800px) {
+  .table-banner{
+    width :350px;
+    overflow-x :scroll;
+    /* overflow-y:scroll; */
+  }
+}
+.btn-paging{
+  float :left
+}
+.search-user{
+  float :right;
+  
+}
+.search-user input{
+ border-radius :10px;
+  outline :none;
+  width :300px;
+  font-size :20px;
+}
+@media screen and (max-width: 800px) {
+  .search-user{
+    float :center;
+    
+  }
+}
+.listing-parent{
+  background :#E3FFF8;
+  boder-radius :20px
+}
+.listing-col-1{
+  
+  float :left;
+  margin-top :200px;
+  margin-left :50px
+}
+ .child{
+  float :center;
+  /* margin-top :200px */
+}
+.listing-col-2{
+  float :right;
+  margin-top :200px;
+  margin-right :50px
+}
+
+
+@media screen and (max-width: 800px) {
+  .listing-col-2{
+    width :100%;
+    margin-top :200px;
+    
+  }
+    
+  }
+  .send-noti-div-p{
+    width :500px;
+    height :300px;
+    margin-top :100px;
+    margin-left :100px;
+    background :#E3FFF8
+  }
+  .send-noti-div{
+    width :400px;
+    margin-top :100px;
+    margin-left :40px;
+    /* background :#E3FFF8 */
+  }
+  .send-btn{
+    background :green;
+    border-radius :30px;
+    color :white
+  }
+  /* .send-noti-div .title{
+    outline :none;
+    width :300px;
+    height :50px;
+    margin-top :20px;
+    margin-left :20px
+  }
+  .send-noti-div .text-area{
+    outline :none;
+    width :300px;
+    height :100px;
+    margin-top :20px;
+    margin-left :20px
+  } */
+
+  .add-banner-div-1{
+    width :700px;
+    height :650px;
+    margin-top :20px;
+    margin-left :100px;
+    background :#E3FFF8
+  }
+  .add-banner-div-2{
+    width :600px;
+    margin-top :20px;
+    margin-left :40px;
+  }
+  .report-div{
+    float :left;
+    width :50%;
+    margin-top :60px
+  }
+  .admin-div{
+    display :flex;
+    justify-content :center;
+    /* align-items :center */
+   
+  }
