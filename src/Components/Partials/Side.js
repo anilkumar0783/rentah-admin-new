@@ -35,7 +35,7 @@ function Side() {
             <br/>
             <NavLink to='/banner' className="btn side-btn form-control mt-3 ">BANNERS</NavLink>
             <br/>
-            <NavLink to='/abc' className="btn side-btn  form-control mt-3">DASHBOARD</NavLink>
+            <NavLink to='/abc' className="btn side-btn  form-control mt-3">DASHBOARD</NavLink>s
             <br/>
             <NavLink to='/pqr' className="btn side-btn form-control mt-3">DASHBOARD</NavLink>
             
@@ -50,7 +50,7 @@ function Side() {
                 <NavLink to="/banner">BANNERS</NavLink>
                 <NavLink to="/notification">NOTIFICATION</NavLink>
                 <NavLink to="/reports">REPORTS</NavLink>
-                <NavLink to="/support">SUPPORT</NavLink>
+                <NavLink to="/support">HELP & SUPPORT</NavLink>
                 <NavLink to="/category">CATEGORIES</NavLink>
                 </div>
                 <div style={{marginTop :"65%"}}>
@@ -63,7 +63,7 @@ function Side() {
                 </div>
                 </div>
             </div>
-            <div className="col-md-2 drawer" style={{background :"#179778",position :"sticky",top : "0",width :"100%"}}>
+            <div className="col-md-2 drawer" style={{background :"#179778",position :"sticky",top : "0px",width :"100%", zIndex :"999"}}>
                     <Link class=" text-light  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                     <i class="bi bi-bar-chart-steps fs-3"></i>
                     </Link>
@@ -85,7 +85,6 @@ function Side() {
                 <NavLink to="/reports">REPORTS</NavLink>
                 <NavLink to="/support">SUPPORT</NavLink>
                 <NavLink to="/category">CATEGORIES</NavLink>
-                
                         </div>
                     </div>
                 </div>

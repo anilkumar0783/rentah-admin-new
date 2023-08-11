@@ -18,6 +18,8 @@ import AddBanner from './Components/Banners/AddBanner';
 import ReportDetail from './Components/Reports/ReportDetail';
 import AdminProfile from './Components/Admin/AdminProfile';
 import Protected from './Protected';
+import Category from './Components/Categories/Category';
+import SubCategory from './Components/Categories/SubCategory';
 function App() {
   const[loginstatus,setLoginstatus] = useState(localStorage.getItem('loginstatus'))
   const[expirationTime,setExpTime] =useState(localStorage.getItem('expirationTime'))
@@ -44,6 +46,9 @@ function App() {
         <Route path='/reports/moreDetails' element={<Protected Component={ReportDetail}/>}></Route>
         <Route path='/notification' element={<Protected Component={Notification}/>}></Route>
         <Route path='/support' element={<Protected Component={Support}/>}></Route>
+        <Route path='/category' element={<Protected Component={Category}/>}></Route>
+        <Route path='/category/subCategory/' element={<Protected Component={SubCategory}/>}></Route>
+    
       </Routes>
     </Router>
     </LoginContext.Provider>

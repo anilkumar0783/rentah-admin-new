@@ -28,7 +28,7 @@ function Banner() {
                     // console.log(seeker)
                 }
             })
-    }, [])
+    }, [banner])
 
     function handleDelete(e,bannerId) {
       const confirmsg=  window.confirm("Are You Sure To Delete")
@@ -40,10 +40,14 @@ function Banner() {
             .then((response) => {
                 if (response.status === true) {
                     toast.success("banner Deleted successfully")
-            setTimeout(()=>{
-                    navigate('/banner')
-                    window.location.reload();
-                   }, 700);
+                  const filterBanner=  banner.filter((i)=>{
+                      return  i._id !== bannerId
+                    })
+                    setBanner(filterBanner)
+            // setTimeout(()=>{
+            //         navigate('/banner')
+            //         window.location.reload();
+            //        }, 700);
                     // console.log(seeker)
                 }
             })
@@ -88,13 +92,24 @@ console.log(formData)
         headers: {Authorization: `bearer ${token}`,"Content-Type":"application/json" },
         body : JSON.stringify(formData)
      }).then((res)=>{return res.json()})
-     .then(response=>{
+     .then(async response=>{
         if(response.status==true){
             toast.success("banner update successfully")
-            setTimeout(()=>{
-                    navigate('/banner')
-                    window.location.reload();
-                   }, 700);
+            banner.map(i=>{
+           
+                if(i._id===bannerId){
+                    i.bannerName=bannerName;
+                    i.bannerImage=bannerImage;
+                    i.bannerURL =bannerURL;
+                    i.isActive =isActive;
+                   
+                }
+              console.log(banner)
+            })
+            // setTimeout(()=>{
+            //         navigate('/banner')
+            //         window.location.reload();
+            //        }, 700);
         }else{
             toast.error("somthing went wrong")
         }
@@ -136,7 +151,7 @@ console.log(formData)
                                             <th>Name</th>
                                             <th>Action</th>
                                         </tr>
-                                        {banner.map((i, key) => (
+                                        {banner?.map((i, key) => (
 
                                             <>
                                                 <tr className="mt-3">
@@ -190,7 +205,7 @@ console.log(formData)
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
                                                 </div>
                                             </div>
                                         </div>

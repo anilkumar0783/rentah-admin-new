@@ -399,14 +399,14 @@ users page css */
   }
   .send-noti-div-p{
     width :500px;
-    height :300px;
-    margin-top :100px;
+    /* height :300px; */
+    margin-top :10px;
     margin-left :100px;
     background :#E3FFF8
   }
   .send-noti-div{
     width :400px;
-    margin-top :100px;
+    margin-top :10px;
     margin-left :40px;
     /* background :#E3FFF8 */
   }

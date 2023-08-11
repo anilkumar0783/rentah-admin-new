@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
     return ( 
         <>
-        <nav className="navbar navbar-light bg-light" style={{overflow :"hidden"}}>
+        <nav className="navbar navbar-light bg-light" style={{}}>
   <div className="container-fluid">
     <span className="navbar-brand mb-0 h1">DASHBOARD
 </span> 
