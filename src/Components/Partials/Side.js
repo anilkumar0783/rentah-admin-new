@@ -5,6 +5,8 @@ function Side() {
     const[admin,setAdmin]=  useState({})
     const token= localStorage.getItem('token')
     const adminName =localStorage.getItem('adminName')
+    const adminType =localStorage.getItem('adminType')
+    const rights =localStorage.getItem('rights')
     // useEffect(()=>{
     //     useEffect(()=>{
     //         fetch(`http://24.199.104.72/api/reports`,{
@@ -44,16 +46,20 @@ function Side() {
             <h3 to='*' className=" fs-3 text-center mt-2" style={{color :"#179778"}}>RENTAH</h3>
             <hr/>
                 <div className="">
-                
-                <NavLink to="/">DASHBOARD</NavLink>
-                <NavLink to="/users">USERS</NavLink>
-                <NavLink to="/banner">BANNERS</NavLink>
-                <NavLink to="/notification">NOTIFICATION</NavLink>
-                <NavLink to="/reports">REPORTS</NavLink>
-                <NavLink to="/support">HELP & SUPPORT</NavLink>
-                <NavLink to="/category">CATEGORIES</NavLink>
+                {adminType==="superAdmin" &&  <NavLink to="/">DASHBOARD</NavLink>}
+                {adminType==="superAdmin" || rights.includes("View users")?   <NavLink to="/users">USERS</NavLink> :<></>}
+                {adminType==="superAdmin" || rights.includes("Update banners") ? <NavLink to="/banner">BANNERS</NavLink>:<></>}
+                {adminType==="superAdmin" || rights.includes("Send notifications") ?<NavLink to="/notification">NOTIFICATION</NavLink>:<></>}
+                {adminType==="superAdmin" || rights.includes("View spam users")?<NavLink to="/reports">REPORTS</NavLink>:<></>}
+                {adminType==="superAdmin" || rights.includes("Handle support queries")? <NavLink to="/support">HELP & SUPPORT</NavLink>:<></>}
+                {adminType==="superAdmin" || rights.includes("Update categories")?<NavLink to="/category">CATEGORIES</NavLink>:<></>}
+                {adminType==="superAdmin" || rights.includes("View listings")?<NavLink to="/listings">LISTINGS</NavLink>:<></>}
+                {adminType==="superAdmin" || rights.includes("View requests")?<NavLink to="/requests">REQUESTS</NavLink>:<></>}
+                <NavLink to="/business-user">BUSSINESS USERS</NavLink>
+                {adminType==="superAdmin" && <NavLink to="/sub-admins">SUB ADMINS</NavLink>}
+               
                 </div>
-                <div style={{marginTop :"65%"}}>
+                {/* <div style={{marginTop :"65%"}}>
                 <div style={{float :"left"}}>
                     <img src="../../image 3.png" style={{width:"50px",height :"50px",borderRadius :"50%"}}/>
                 </div>
@@ -61,7 +67,7 @@ function Side() {
                 <h5 className="h5 ms-2">{adminName}</h5>
                 <Link>Log Out</Link>
                 </div>
-                </div>
+                </div> */}
             </div>
             <div className="col-md-2 drawer" style={{background :"#179778",position :"sticky",top : "0px",width :"100%", zIndex :"999"}}>
                     <Link class=" text-light  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -85,6 +91,10 @@ function Side() {
                 <NavLink to="/reports">REPORTS</NavLink>
                 <NavLink to="/support">SUPPORT</NavLink>
                 <NavLink to="/category">CATEGORIES</NavLink>
+                <NavLink to="/listings">LISTINGS</NavLink>
+                <NavLink to="/requests">REQUESTS</NavLink>
+                <NavLink to="/business-user">BUSSINESS USERS</NavLink>
+                <NavLink to="/sub-admins">SUB ADMINS</NavLink>
                         </div>
                     </div>
                 </div>

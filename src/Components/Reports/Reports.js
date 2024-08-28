@@ -130,7 +130,7 @@ function hanleStatusChange(e,reportId){
                                         <thead className='mb-2'>
                                             <tr className='' style={{ background: "#F6F6F6", height : "50px" }}>
                                                 <th>S No</th>
-                                                <th>Report Id</th>
+                                                {/* <th>Report Id</th> */}
                                                 <th>Reported By</th>
                                                 <th>Reported User</th>
                                                 <th>Report Status</th>
@@ -142,7 +142,7 @@ function hanleStatusChange(e,reportId){
                                                 <>
                                                     <tr className="mt-2" style={{ background: "#F0EBEB" }}>
                                                         <td>{key + 1}</td>
-                                                        <td>{i._id}</td>
+                                                        {/* <td>{i._id}</td> */}
                                                         <td>{i.userData.fullName}<i onClick={(e) => { return setUser(i.userData), setReported(false) }} className="bi bi-eye fs-4 btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
                                                         <td>{i.reportUserData.fullName}<i onClick={(e) => { return setUser(i.reportUserData), setReported(true) }} className="bi bi-eye fs-4 btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
                                                         <td>
@@ -187,7 +187,8 @@ function hanleStatusChange(e,reportId){
                                                             <button type="button" class="btn btn-danger" onClick={(e)=>{handleBan(e,user._id)}}>Ban User</button>
                                                             :
                                                             <button type="button" class="btn btn-danger" onClick={(e)=>alert("Already Banned")}>Banned</button>
-}
+}                                                           
+                                                            <Link to={`/users/moreDetails/${user._id}`}><button type="button" class="btn btn-success "  data-bs-dismiss="modal" aria-label="Close" >View User</button></Link>
                                                         </div>
                                                     </div>
                                                 </div>

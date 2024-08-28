@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Side from "../Partials/Side";
 import { useEffect, useState } from "react";
 import { Bars } from 'react-loader-spinner'
+import { ToastContainer, toast } from "react-toastify";
 function SingleRequest() {
     const { userRequestId } = useParams()
     let Navigate = useNavigate()
@@ -16,10 +17,27 @@ function SingleRequest() {
                 if (response.status == true) {
                     setLoaded(true)
                     setRequest(response.data)
-                    
+                    console.log(response.data)
                 }
             })
     }, [])
+
+    function handleDeleteRequest(e,userRequestId){
+        const userRes=  window.confirm("Are You Sure To Delete List")
+        if(userRes===true){
+        fetch(`http://24.199.104.72/api/user-requests/${userRequestId}/delete`, {
+            headers: { Authorization: `bearer ${token}`, "Content-Type": "application/json" }
+        }).then((res) => { return res.json() })
+            .then(response => {
+                if (response.status == true) {
+                    toast.success(response.message)
+                    Navigate(-1)
+                }else{
+                    toast.error(response.message)
+                }
+            })
+        }
+    }
     return ( 
 
         <>
@@ -29,6 +47,7 @@ function SingleRequest() {
                     <Side />
                     <div className="col-md-2"></div>
                     <div className="col-md-10">
+                    <ToastContainer/>
                     {loaded == false ?
                             <div className="loader" style={{ marginLeft: "46%", marginTop: "21%" }}>
                                 <Bars
@@ -44,9 +63,10 @@ function SingleRequest() {
                             </div>
                             :
                             <>
-                            <i className="bi bi-chevron-compact-left fs-2" onClick={()=>{Navigate(-1)}} style={{cursor :"pointer"}}>GoBack</i>
-                        <div className="listing-parent">
-                            <div className="listing-col-1">
+                            <p className="fs-3"><i className="bi bi-chevron-compact-left fs-2" onClick={()=>{Navigate(-1)}} style={{cursor :"pointer"}}></i>Goback</p>
+                            <button className="btn btn-danger" onClick={(e)=>{handleDeleteRequest(e,request._id)}}>Delete</button>
+                        <div className="row" style={{marginTop:"100px"}}>
+                            <div className="col-md-6">
                                 <h3>{request.title}</h3>
                                 <h6 style={{ color: "grey" }}>{request.description}</h6>
                                 <p>{request.category}/{request.subCategory}</p>
@@ -57,12 +77,12 @@ function SingleRequest() {
                                     <span class="badge rounded-pill  " style={{ background: "#179778" }}>{i}</span>
                                 ))}
                             </div>
-                            <div className="listing-col-2">
+                            <div className="col-md-6">
                                 <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                                     <div className="carousel-inner">
-                                        {list.listingPhotos?.map(i=>(
-                                            <div className="carousel-item active" style={{width :"400px"}}>
-                                            <img src={i} className="d-block w-100" alt="..." />
+                                        {request.listingPhotos?.map(i=>(
+                                            <div className="carousel-item active" >
+                                            <img src={i} className="d-block w-100" alt="..." style={{width :"300px",height:"300px"}}/>
                                         </div>
                                         ))}
                                         

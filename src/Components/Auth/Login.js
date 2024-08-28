@@ -25,10 +25,13 @@ function Login() {
                 localStorage.setItem('token',response.token)
                 const expirationTime = Date.now() + 24 * 60 * 60 * 1000;
                 localStorage.setItem('expirationTime', expirationTime);
-                localStorage.setItem('adminId',response.admin.adminId)
+                localStorage.setItem('adminId',response.admin._id)
                 localStorage.setItem('adminImage',response.admin.adminImage)
                 localStorage.setItem('adminName',response.admin.firstName + response.admin.lastName)
                 localStorage.setItem('loginstatus',1)
+                localStorage.removeItem("rights")
+                localStorage.setItem("adminType",response.admin.adminType)
+                localStorage.setItem("rights",response.admin.rights)
                 setLoginstatus(localStorage.getItem('loginstatus'))
                 setExpTime(localStorage.getItem('expirationTime'))
                 toast("login successfull")

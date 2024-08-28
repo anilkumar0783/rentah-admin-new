@@ -166,8 +166,8 @@ function Category() {
                                 <div style={{ overflow: "hidden" }}>
                                     {category.map(i => (
 
-                                        <ul class="list-group" style={{ overflow: "auto" }}>
-                                            <li class="list-group-item active mt-3 bg-dark " aria-current="true">{i.categoryName}
+                                        <ul class="list-group " style={{ overflow: "auto" }}>
+                                            <li class="list-group-item active mt-3 bg-dark border-0" aria-current="true">{i.categoryName}
                                              <button className="btn float-end text-light" data-bs-toggle="modal" data-bs-target="#exampleModal1" style={{ background: "#179778" }} 
                                              onClick={(e)=>{handleAdd(e,i._id,i.categoryName)}}
                                              >
@@ -179,7 +179,7 @@ function Category() {
                                                         <Link className="me-5 fs-5 float-end text-success" data-bs-toggle="modal" data-bs-target="#exampleModal2" onClick={(e)=>{handleEditSub(e,j._id,j.subCategoryName,j.imageURL)}}><i class="bi bi-pencil-fill"></i></Link>
                                                     </li>
                                                 </>
-
+ 
                                             ))}
 
                                         </ul>

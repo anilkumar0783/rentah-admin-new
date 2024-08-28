@@ -24,6 +24,7 @@ useEffect(()=>{
         if(response.status===true){
            setAdmin(response.admin)
            setLoaded(true)
+           console.log(response)
         }
     })
 })

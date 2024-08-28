@@ -27,12 +27,19 @@ code {
 /* body{
   overflow :scroll
 } */
-
-@media screen and (max-width: 800px) {
+html,
+body{
+  width : 100%;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+  -webkit-overflow-scrolling: touch;
+}
+/* @media screen and (max-inline-size: 800px) {
   body{
     overflow :scroll
   }
-  }
+  } */
 .loader{
   margin-left :"100vw"
 }
@@ -48,7 +55,7 @@ code {
 .offcanvas-body{
   margin: 0;
   padding: 0;
-  width: 250px;
+  inline-size: 250px;
   background-color: #E3FFF8;
   position: fixed;
   height : 100%;
@@ -76,9 +83,9 @@ code {
 }
 
 div.content {
-  margin-left: 200px;
+  margin-inline-start: 200px;
   padding: 1px 16px;
-  height: 1000px;
+  block-size: 1000px;
 }
 .drawer{
   display :none
@@ -111,16 +118,16 @@ div.content {
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-  margin-left: 200px;
+  margin-inline-start: 200px;
   padding: 1px 16px;
-  height: 1000px;
+  block-size: 1000px;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .sidebar {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
     position: relative;
     display :none
   }
@@ -137,14 +144,14 @@ div.content {
     
     border-radius :24px ;
   }
-  div.content {margin-left: 0;}
+  div.content {margin-inline-start: 0;}
   .drawer{
     display :block
   }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-/* @media screen and (max-width: 700px) {
+/* @media screen and (max-inline-size: 700px) {
   .sidebar a {
     text-align: center;
     float: none;
@@ -164,6 +171,16 @@ div.content {
   top : 130px;
   /* border : 5px solid yellow; */
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media screen and (max-inline-size: 800px) {
+  .login-card{
+    position : absolute;
+  left : 55px;
+  top : 50px;
+  height : 65vh;
+  width : 70vw;
+  }
 }
 .login-input{
   /* width : 500px */
@@ -244,6 +261,9 @@ users page css */
   float : left;
   width : 70%;
   padding : 10px;
+  border-left:2px solid black;
+  border-top:2px solid black;
+  border-right:2px solid black
    /* Should be removed. Only for demonstration */
 }
 /* Clear floats after the columns */
@@ -254,13 +274,13 @@ users page css */
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .column-1 {
-    width: 100%;
+    inline-size: 100%;
     
   }
   .column-2 {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -271,7 +291,11 @@ users page css */
   padding : 10px;
   overflow :scroll;
   overflow-x:hidden;
-
+  
+}
+.card-list{
+  width :300px;
+  border:1px solid black
 }
 .request-column{
   float : left;
@@ -282,13 +306,13 @@ users page css */
   overflow-x:hidden;
 
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .listing-column {
-    width: 100%;
+    inline-size: 100%;
     margin-top :50px
   }
   .request-column {
-    width: 100%;
+    inline-size: 100%;
     margin-top :50px
   }
 }
@@ -332,7 +356,7 @@ users page css */
   font-size :"100px"
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .card-dashboard{
     margin-left :3px
   }
@@ -342,7 +366,7 @@ users page css */
   /* overflow-x :hidden;
   overflow-y:hidden; */
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .table-banner{
     width :350px;
     overflow-x :scroll;
@@ -353,16 +377,19 @@ users page css */
   float :left
 }
 .search-user{
-  float :right;
+  float :left;
   
 }
 .search-user input{
- border-radius :10px;
+ border-radius :6px;
   outline :none;
   width :300px;
+  height:50px;
+  border:1px solid grey;
   font-size :20px;
+  padding-top:"20px"
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .search-user{
     float :center;
     
@@ -389,7 +416,7 @@ users page css */
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-inline-size: 800px) {
   .listing-col-2{
     width :100%;
     margin-top :200px;
@@ -452,4 +479,18 @@ users page css */
     justify-content :center;
     /* align-items :center */
    
+  }
+
+
+  .images{
+    display: inline-block;
+    background-color: transparent;
+    color: black;
+    border-radius:10px;
+    margin-top:10px;
+    
+    width:400px;
+      height:auto;
+      /* border:1px solid grey; */
+  
   }

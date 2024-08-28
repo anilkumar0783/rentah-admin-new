@@ -69,15 +69,15 @@ function AddBanner() {
                             <div className="add-banner-div-2">
                                 <form method="post" onSubmit={(e) => { handleSubmit(e) }}>
                                     <label className="form-label mt-3">Banner Name</label>
-                                    <input className="form-control" type="text" value={bannerName}
+                                    <input className="form-control "required type="text" value={bannerName}
                                         onChange={(e) => { setBannerName(e.target.value) }}
                                     />
                                     <label className="form-label mt-3">Banner URL</label>
-                                    <input className="form-control" type="text"
+                                    <input className="form-control" required type="text"
                                         value={bannerURL}
                                         onChange={(e) => { setBannerURL(e.target.value) }}
                                     />
-                                    <input className="form-control mt-5" type="file" id="formFileMultiple"
+                                    <input className="form-control mt-5" required type="file" id="formFileMultiple"
                                         onChange={handleImg}
                                     />
                                     {bannerImage == "" ?

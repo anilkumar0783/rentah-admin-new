@@ -59,7 +59,7 @@ function Support() {
                                                     <td>{key + 1}</td>
                                                     <td>{i.userName}</td>
                                                     <td><a href={`mailto:${i.email}`} target="_blank">{i.email}</a></td>
-                                                    <td ><i className="bi bi-eye fs-4 btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
+                                                    <td ><p className=" text-primary btn" data-bs-toggle="modal" data-bs-target="#exampleModal">View</p></td>
                                                     <td>{new Date(i.creationTimeStamp).getDate()}/{new Date(i.creationTimeStamp).getMonth()+1}/{new Date(i.creationTimeStamp).getFullYear()}</td>
                                                 </tr>
                                                 <br />
