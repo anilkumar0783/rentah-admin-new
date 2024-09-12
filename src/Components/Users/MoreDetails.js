@@ -15,6 +15,7 @@ function MoreDetails() {
   const [fullName,setFullName]=useState("")
   const [phone,setPhone]=useState("")
   const [email,setEmail]=useState("")
+  const[socialLink,setSocialLink]=useState("")
   const [address,setAddress]=useState("")
   const [longitude,setLongitude]=useState("")
   const [latitude,setLatitude]=useState("")
@@ -51,6 +52,7 @@ function MoreDetails() {
           setFullName(response.user.fullName)
           setPhone(response.user.phone)
           setEmail(response.user.email)
+          setSocialLink(response.user.socialLink)
           setAddress(response.user.address)
           setLatitude(response.user.latitude)
           setLongitude(response.user.longitude)
@@ -154,7 +156,7 @@ function MoreDetails() {
 
 function handleSubmit(e){
     e.preventDefault()
-    let formData={fullName,phone,email,address,longitude,latitude,city,state,description,profilePicture,coverImage,website,deviceType,cashAppId}
+    let formData={fullName,phone,email,socialLink,address,longitude,latitude,city,state,description,profilePicture,coverImage,website,deviceType,cashAppId}
   fetch(`http://24.199.104.72/api/admin/user/${userId}/edit`, {
     method: "POST",
     headers :{"Content-Type":"application/json" },
@@ -176,7 +178,7 @@ function handleSendEmail(){
  else{
 
  
-  let formData={businessName,sendEmail,notes}
+  let formData={businessName,sendEmail}
   console.log(formData)
   fetch("http://24.199.104.72/api/admin/send-email" ,{
     method:"POST",
@@ -240,6 +242,7 @@ function handleSendEmail(){
                       textAlign:"center"
                       
                     }}
+                    onClick={()=>{setBusinessName(user.fullName);setSendEmail(user.email)}}
                     >Send email</button>
 
                     <button
@@ -419,6 +422,15 @@ function handleSendEmail(){
                       style={{ height: "55px" }}
                       value={email}
                       onChange={(e)=>{setEmail(e.target.value)}}
+                    />
+                    <label className="mt-1">Social Link</label>
+                    <input
+                      type="text"
+                      className="form-control mt-1"
+                      disabled={!editingMode}
+                      style={{ height: "55px" }}
+                      value={socialLink}
+                      onChange={(e)=>{setSocialLink(e.target.value)}}
                     />
                     <label className="mt-1">Cash App/Venmo*</label>
                     <input
@@ -696,20 +708,16 @@ function handleSendEmail(){
                                                    <input  
                                                    value={businessName}
                                                    onChange={(e)=>setBusinessName(e.target.value)}
-                                                   className="form-control" style={{borderRadius:"6px"}}></input>
+                                                   className="form-control" style={{borderRadius:"6px"}}></input><br/>  
                                                    Email* <br/>
                                                    <input
                                                      value={sendEmail}
                                                      onChange={(e)=>setSendEmail(e.target.value)}
                                                    className="form-control" style={{borderRadius:"6px"}}></input>
-                                                  Notes* <br/>
-                                                   <input
-                                                     value={notes}
-                                                     onChange={(e)=>setNotes(e.target.value)}
-                                                   className="form-control" style={{borderRadius:"6px", height:"80px"}}></input>
+                                                  
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>{setSendEmail(""); setBusinessName(""); setEmail("") }}>Cancel</button>
+                                                <div class="text-end p-3 px-3 ">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>{ setFullName(""); setEmail("") }}>Cancel</button>&nbsp;&nbsp;
                                                     <button onClick={handleSendEmail} class="btn btn-primary">Send</button>
                                                 </div>
                                             </div>

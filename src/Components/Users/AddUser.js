@@ -440,6 +440,7 @@ function AddUser() {
   const [countrie, setCountries] = useState([]);
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
+  const[socialLink,setSocialLink]=useState("");
   const [address, setAddress] = useState("")
   const [state, setState] = useState("")
   const [city, setCity] = useState("")
@@ -517,7 +518,7 @@ function AddUser() {
     e.preventDefault()
     let phoneNumber = phone; // `phoneInput` should be the phone number without the country code
     phoneNumber = `${selectedCountry}${phone}`;
-    let formData = { fullName, phone, email, address, longitude, latitude, city, state, description, profilePicture, coverImage, cashAppId, website, deviceType }
+    let formData = { fullName, phone, email,socialLink, address, longitude, latitude, city, state, description, profilePicture, coverImage, cashAppId, website, deviceType }
     // console.log(formData)
     fetch(`http://24.199.104.72/api/users/add`, {
       method: "POST",
@@ -613,13 +614,18 @@ function AddUser() {
                     value={phone}
                     onChange={handlePhoneChange}
                     placeholder="Phone"
-                    className={`form-control mt-3 ${error ? 'error-border' : ''}`}  
+                    className={`form-control mt-3 ${error ? 'error-border' : ''}`}
                   />
                   {error && <p style={{ color: 'red', marginTop: '5px' }}>{error}</p>}
 
                   <input type='email' className='form-control mt-3' placeholder='Email'
                     value={email}
                     onChange={(e) => { setEmail(e.target.value) }}
+                  />
+
+                  <input type='socialLink' className='form-control mt-3' placeholder='Social Link'
+                    value={socialLink}
+                    onChange={(e) => { setSocialLink(e.target.value) }}
                   />
 
                   <input type='text' className='form-control mt-3' placeholder='Address'

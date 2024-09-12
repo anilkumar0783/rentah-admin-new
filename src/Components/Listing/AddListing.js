@@ -320,15 +320,16 @@ function handleFindLocation(e){
                     <option value="4">Hour</option>
                     <option value="0">Day</option>
                     <option value="1">Week</option>
+                    <option value="6">Year</option>
                     <option value="2">Month</option>
                     <option value="3">For Sell</option>
                     <option value="5">Custom</option>
                   </select>
-                  <input type='number' className='form-control mt-3' placeholder='Budget'
+                  <input type='number' className='form-control mt-3' placeholder='Price'
                     value={budget}
                     onChange={(e) => { setBudget(e.target.value) }}
                   />
-
+  
                   <input type='text' className='form-control mt-3' placeholder='Tags'
                     value={sigleTag}
                     onChange={(e) => { setSingleTag(e.target.value) }}

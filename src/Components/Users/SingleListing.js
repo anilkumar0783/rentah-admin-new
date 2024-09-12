@@ -195,6 +195,7 @@ function SingleListing() {
                     {list.type == 3 && <p>${list.budget}/Sell</p>}
                     {list.type == 4 && <p>${list.budget}/Hour</p>}
                     {list.type == 5 && <p>${list.budget}/Custom </p>}
+                    {list.type == 6 && <p>${list.budget}/Year</p>}
                     {/* <p>${list.budget}</p> */}
                     <lable className="fw-bold">Listing Category</lable>
                     <br />

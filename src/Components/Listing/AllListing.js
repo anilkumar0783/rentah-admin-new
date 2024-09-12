@@ -227,6 +227,7 @@ export default function AllListing() {
                             {i.type==3 && <td>For Sale</td>}
                             {i.type==4 && <td>Hour</td>}
                             {i.type==5 && <td>Custom</td>}
+                            {i.type==6 && <td>Year</td>}
                             {i.type==-1 &&  <td>-</td>}
                             <td><Link to={`/users/listing/${i._id}`} className='btn' style={{ background: "#D9D9D9", fontWeight: "bold" }}>View Details</Link></td>
                           </tr>
