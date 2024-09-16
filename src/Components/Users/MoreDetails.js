@@ -717,7 +717,7 @@ function handleSendEmail(){
                                                   
                                                 </div>
                                                 <div class="text-end p-3 px-3 ">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>{ setFullName(""); setEmail("") }}>Cancel</button>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>{ setBusinessName(""); setSendEmail("") }}>Cancel</button>&nbsp;&nbsp;
                                                     <button onClick={handleSendEmail} class="btn btn-primary">Send</button>
                                                 </div>
                                             </div>
