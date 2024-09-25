@@ -22,6 +22,9 @@ function AddListing() {
   const [latitude,setLatitude]=useState("")
   const [longitude,setLongitude]=useState("")
  const createdBy =localStorage.getItem("adminId")
+ const [disable,setDisable]=useState(false)
+ const[fileValue,setFileValue]=useState(false)
+ const[btnDisable,setBtnDisable]=useState(false)
   // const [loaded, setLoaded] = useState(false)
   const  {userId}  = useParams()
   const token = localStorage.getItem('token')
@@ -84,6 +87,13 @@ function AddListing() {
     const files = Array.from(e.target.files);
     // setPhotos(Array.from(e.target.files));
     console.log(e.target.files)
+    if(e.target.files.length===0){
+      setFileValue(false)
+    }else{
+     
+      setFileValue(true);
+
+    }
     files.forEach((file, index) => {
       formData.append(`listing_excel`, file);
     });
@@ -92,6 +102,9 @@ function AddListing() {
 
 function handlebulkSubmit(e){
   e.preventDefault()
+  if(fileValue){
+  setDisable(true);
+  // e.preventDefault()
     fetch(`http://24.199.104.72/api/listings/import-excel`, {
       method: "POST",
       headers: { Authorization: `bearer ${token}`},
@@ -101,11 +114,15 @@ function handlebulkSubmit(e){
         // setListingPhotos(response.images)
         console.log(response)
         if(response.status===true){
+          setDisable(false)
           toast.success(response.message)
+          window.location.reload()
         }else{
+          setDisable(false)
           toast.error(response.message)
         }
       })
+    }
 }
 
   function handleFileChange(e) {
@@ -169,6 +186,7 @@ function handleFindLocation(e){
 
   
   console.log(latitude,longitude)
+  setBtnDisable(true)
     e.preventDefault()
      if(listingType===null){
       toast.error("Select list type")
@@ -357,13 +375,13 @@ function handleFindLocation(e){
 
                   {/* <h1>{selectedCountry?.value}{phone}</h1> */}
                 </form>
-                <button className='btn btn-success mb-5 mt-3 form-control' onClick={handleSubmit}>Submit</button>
+                <button className='btn btn-success mb-5 mt-3 form-control' disabled={btnDisable} onClick={handleSubmit}>Submit</button>
                 {/* <p>{latitude},{longitude}</p> */}
                 <h2 className='text-center'>OR</h2>
                 <form method='post' onSubmit={(e)=>{handlebulkSubmit(e)}}>
                   <label className='form-label'>Upload Bulk Listing:</label>
                   <input type='file' className='form-control' onChange={fileChangeXl}/>
-                  <button type='submit' className='btn btn-success form-control mt-3 mb-5'>Upload</button>
+                  <button type='submit' disabled={disable} className='btn btn-success form-control mt-3 mb-5'>Upload</button>
                 </form>
               </div>
             </div>
