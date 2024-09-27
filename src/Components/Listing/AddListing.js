@@ -25,6 +25,7 @@ function AddListing() {
  const [disable,setDisable]=useState(false)
  const[fileValue,setFileValue]=useState(false)
  const[btnDisable,setBtnDisable]=useState(false)
+ 
   // const [loaded, setLoaded] = useState(false)
   const  {userId}  = useParams()
   const token = localStorage.getItem('token')
@@ -118,7 +119,8 @@ function handlebulkSubmit(e){
         if(response.status===true){
           setDisable(false)
           toast.success(response.message)
-          setDisable(true)
+          setDisable(false)
+          
         }else{
           setDisable(false)
           toast.error(response.message)
