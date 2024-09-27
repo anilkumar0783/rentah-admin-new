@@ -87,22 +87,24 @@ function AddListing() {
     const files = Array.from(e.target.files);
     // setPhotos(Array.from(e.target.files));
     console.log(e.target.files)
-    if(e.target.files.length===0){
-      setFileValue(false)
-    }else{
-     
-      setFileValue(true);
-
-    }
+   
     files.forEach((file, index) => {
       formData.append(`listing_excel`, file);
     });
+     // if(e.target.files.length===0){
+    //   setFileValue(false)
+    // }else{
+     
+    //   setFileValue(true);
+
+    // }
   }
 
 
 function handlebulkSubmit(e){
   e.preventDefault()
-  if(fileValue){
+  //  if(Object.keys(formData).length!==0){
+  console.log(formData)
   setDisable(true);
   // e.preventDefault()
     fetch(`http://24.199.104.72/api/listings/import-excel`, {
@@ -116,13 +118,13 @@ function handlebulkSubmit(e){
         if(response.status===true){
           setDisable(false)
           toast.success(response.message)
-          window.location.reload()
+          setDisable(true)
         }else{
           setDisable(false)
           toast.error(response.message)
         }
       })
-    }
+    // }
 }
 
   function handleFileChange(e) {
