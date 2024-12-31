@@ -17,7 +17,7 @@ function SubAdmin() {
   const [loaded, setLoaded] = useState(true)
   const token = localStorage.getItem('token')
   const [adminId,setAdminId]=useState("")
-
+  const [objID,setObjID]=useState("")
 
   function handleSearch(e) {
     
@@ -166,6 +166,7 @@ useEffect(()=>{
                             <td>{i.requests}</td>
                            <td><button className='btn' data-bs-toggle="modal" onClick={() => {
         setAdminId(i.adminId);
+        setObjID(i._id)
         console.log(i.adminId);
     }}
               data-bs-target="#staticBackdrop3" style={{ background: "green",color:"white", fontWeight: "bold" }}>Edit</button></td>
@@ -236,7 +237,7 @@ useEffect(()=>{
               ></button>
             </div>
             <div class="modal-body">
-              <AddSubAdmin/>
+              <AddSubAdmin />
             </div>
           </div>
         </div>
@@ -270,7 +271,7 @@ useEffect(()=>{
               ></button>
             </div>
             <div class="modal-body">
-            <EditSubAdmin adminId={adminId}/>
+            <EditSubAdmin adminId={adminId} objID={objID}/>
             </div>
           </div>
         </div>

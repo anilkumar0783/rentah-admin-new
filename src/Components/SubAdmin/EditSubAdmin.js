@@ -66,7 +66,7 @@ function EditSubAdmin(props) {
   }
 
   useEffect(()=>{
-    fetch(`http://24.199.104.72/api/admins/${adminId}`, {
+    fetch(`http://24.199.104.72/api/admins/${props.objID}`, {
         headers: { Authorization: `bearer ${token}`, "Content-Type": "application/json" }
     }).then((res) => { return res.json() })
         .then(response => {
